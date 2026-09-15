@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Murder Bird</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game" width="640" height="360"></canvas>
+
+    <!-- Heads-up display -->
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <span class="hud-label">SCORE</span>
+        <span id="score">0</span>
+        <div id="power" class="hidden">🚀 ROCKETS <span id="power-time">45</span>s</div>
+        <div id="power2" class="hidden">🎯 HELLFIRE <span id="power2-time">30</span>s</div>
+        <div id="power3" class="hidden">✦ x2 SCORE <span id="power3-time">15</span>s</div>
+      </div>
+      <div class="hud-center" id="boss-hud">
+        <span class="hud-label">SOFTWARE JESUS</span>
+        <div class="boss-bar"><div id="boss-fill"></div></div>
+      </div>
+      <div class="hud-right">
+        <span class="hud-label">LIVES</span>
+        <span id="lives">♥ ♥ ♥</span>
+      </div>
+    </div>
+
+    <!-- Title screen -->
+    <div id="screen-title" class="screen">
+      <h1 class="title">MURDER<span>BIRD</span></h1>
+      <p class="tagline">Fly. Dodge. Shoot. Survive until the reckoning.</p>
+      <div class="briefing">
+        <div class="brief-row"><b>Move</b><span>Arrow keys / WASD</span></div>
+        <div class="brief-row"><b>Shoot</b><span>Spacebar</span></div>
+        <div class="brief-row"><b>Goal</b><span>Reach 10,000 to face Software Jesus</span></div>
+      </div>
+      <p class="prompt blink">PRESS SPACE TO DEPLOY</p>
+      <p class="hiscore-line">Top score: <span id="title-best">—</span></p>
+    </div>
+
+    <!-- Boss intro banner -->
+    <div id="screen-bossintro" class="screen hidden">
+      <p class="warn blink">⚠ WARNING ⚠</p>
+      <h2 class="boss-name">SOFTWARE JESUS</h2>
+      <p class="tagline">The MURDER BIRD has entered the airspace.</p>
+      <p class="prompt blink">DEFEAT SOFTWARE JESUS!</p>
+    </div>
+
+    <!-- Temporary flashing objective banner during the fight -->
+    <div id="boss-banner" class="hidden">DEFEAT<span>SOFTWARE JESUS</span></div>
+
+    <!-- Game over / name entry -->
+    <div id="screen-over" class="screen hidden">
+      <h2 id="over-heading">SHOT DOWN</h2>
+      <p class="final-line">Final score <span id="final-score">0</span></p>
+      <div id="entry-block">
+        <label for="name-input">Enter callsign for the board</label>
+        <div class="entry-row">
+          <input id="name-input" maxlength="12" autocomplete="off" spellcheck="false" placeholder="PILOT" />
+          <button id="save-btn">SAVE</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scoreboard -->
+    <div id="screen-board" class="screen hidden">
+      <h2 class="board-title">TOP GUNS</h2>
+      <ol id="board-list"></ol>
+      <p class="prompt blink">PRESS SPACE TO FLY AGAIN</p>
+    </div>
+
+    <!-- Mobile controls hint -->
+    <div id="touch-hint" class="hidden">Drag to fly · tap to fire</div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

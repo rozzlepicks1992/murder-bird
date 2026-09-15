@@ -1,0 +1,8 @@
+services:
+  murder-bird:
+    build: .
+    image: murder-bird:latest
+    container_name: murder-bird
+    ports:
+      - "8080:80"
+    restart: unless-stopped
