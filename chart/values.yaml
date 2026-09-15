@@ -1,0 +1,27 @@
+replicaCount: 2
+
+image:
+  repository: ghcr.io/rozzlepicks1992/murder-bird
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# If the GHCR package is private, create a docker-registry secret and name it here:
+#   kubectl create secret docker-registry ghcr \
+#     --docker-server=ghcr.io --docker-username=rozzlepicks1992 --docker-password=YOUR_PAT
+imagePullSecrets: []
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 16Mi
+  limits:
+    cpu: 100m
+    memory: 64Mi
+
+ingress:
+  enabled: false
+  host: murder-bird.local
